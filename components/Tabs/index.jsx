@@ -4,8 +4,9 @@ import { AiFillEye, AiOutlineDesktop, AiFillCode } from "react-icons/ai";
 import ReactMarkdown from "react-markdown";
 import LoadingContent from "../LoadingContent";
 import NoContent from "../NoContent";
-
 import CodeBlock from "../CodeBlock";
+
+import style from "./Tabs.module.css";
 
 function TabsPanel({ markdown, isFetching }) {
   function stringfy() {
@@ -26,7 +27,7 @@ function TabsPanel({ markdown, isFetching }) {
       <TabList>
         <Tab>
           <div className="row">
-            <div className="icon-base blue">
+            <div className={`${style.icon_base} ${style.blue}`}>
               <AiFillCode />
             </div>
             Markdown Code
@@ -35,7 +36,7 @@ function TabsPanel({ markdown, isFetching }) {
         <Tab>
           {" "}
           <div className="row">
-            <div className="icon-base purple">
+            <div className={`${style.icon_base} ${style.purple}`}>
               <AiFillEye />
             </div>
             Preview
@@ -44,7 +45,7 @@ function TabsPanel({ markdown, isFetching }) {
         <Tab>
           {" "}
           <div className="row">
-            <div className="icon-base pink">
+            <div className={`${style.icon_base} ${style.pink}`}>
               <AiOutlineDesktop />
             </div>
             Live Editor
@@ -63,7 +64,7 @@ function TabsPanel({ markdown, isFetching }) {
       </TabPanel>
       <TabPanel>
         {!isFetching && markdown.length > 0 && (
-          <div className="markdown-preview">
+          <div className={style.markdown_preview}>
             {markdown.map((md) => (
               <ReactMarkdown key={md}>{md}</ReactMarkdown>
             ))}

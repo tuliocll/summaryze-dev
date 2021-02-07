@@ -1,9 +1,10 @@
 import Image from "next/image";
+import style from "./Nav.module.css";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="container-navbar">
+    <nav className={style.navbar}>
+      <div className={style.container_navbar}>
         <Image src="/logo.png" alt="Logo" width={200} height={27} />
         <ul>
           <li>

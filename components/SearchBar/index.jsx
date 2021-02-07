@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import style from './SearchBar.module.css';
+
 
 function SearchBar({ onClick }) {
   const [url, setUrl] = useState("");
@@ -13,7 +15,7 @@ function SearchBar({ onClick }) {
   }
 
   return (
-    <div className="search-bar">
+    <div className={style.container}>
       <AiOutlineSearch />
       <input
         value={url}
