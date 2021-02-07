@@ -59,7 +59,9 @@ function TabsPanel({ markdown, isFetching }) {
         {markdown.length === 0 && <NoContent />}
 
         {!isFetching && (
-          <ReactMarkdown renderers={CodeBlock} children={stringfy()} />
+          <div className={style.markdown_code}>
+            <ReactMarkdown renderers={CodeBlock} children={stringfy()} />
+          </div>
         )}
       </TabPanel>
       <TabPanel>

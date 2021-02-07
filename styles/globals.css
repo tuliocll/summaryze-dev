@@ -79,3 +79,13 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 576px) {
+  .react-tabs__tab {
+    width: 100%;
+  }
+
+  .react-tabs__tab-panel--selected {
+    width: 100%;
+  }
+}

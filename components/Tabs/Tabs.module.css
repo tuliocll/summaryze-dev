@@ -35,3 +35,9 @@
 .markdown_preview > ul {
   margin-left: 20px;
 }
+
+@media (max-width: 576px) {
+  .markdown_code {
+    width: 90vmin;
+  }
+}

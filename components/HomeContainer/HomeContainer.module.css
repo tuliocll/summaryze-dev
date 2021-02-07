@@ -19,3 +19,18 @@
   align-content: flex-end;
   margin-top: 30px;
 }
+
+@media (max-width: 576px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container__primary {
+    width: 60%;
+    margin-top: 20px;
+  }
+  .container__secondary {
+    width: 50%;
+  }
+}
