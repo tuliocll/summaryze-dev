@@ -1,65 +1,81 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useState } from "react";
+import Head from "next/head";
+import fetch from "node-fetch";
+import { ToastContainer, toast } from "react-toastify";
+
+import Navbar from "../components/Nav";
+import HomeContainer from "../components/HomeContainer";
+import SearchBar from "../components/SearchBar";
+import Tabs from "../components/Tabs";
 
 export default function Home() {
+  const [sumary, setSummary] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+
+  async function handleClick(url) {
+    if (!url) {
+      toast("Please provide a url!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        type: "error",
+      });
+      return;
+    }
+    setIsFetching(true);
+
+    try {
+      const response = await fetch(`/api/hello?url=${url}`);
+      const body = await response.json();
+      if (response.status === 400) {
+        toast(body.error, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          type: "error",
+        });
+        setIsFetching(false);
+        return;
+      }
+
+      setSummary(body.sumary);
+      setIsFetching(false);
+    } catch (_) {
+      toast("Error on request, check your url and try again", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        type: "error",
+      });
+      setIsFetching(false);
+    }
+  }
+
   return (
-    <div className={styles.container}>
+    <div style={{ height: "100%" }}>
       <Head>
-        <title>Create Next App</title>
+        <title>Summaryze DEV</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Navbar />
+      <HomeContainer />
+      <div className="container">
+        <SearchBar onClick={handleClick} />
+        <Tabs markdown={sumary} isFetching={isFetching} />
+      </div>
+      <ToastContainer />
     </div>
-  )
+  );
 }
