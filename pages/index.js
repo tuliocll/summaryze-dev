@@ -3,8 +3,11 @@ import Head from "next/head";
 import fetch from "node-fetch";
 import { ToastContainer, toast } from "react-toastify";
 
-import Navbar from "../components/Nav";
 import HomeContainer from "../components/HomeContainer";
+import HowToUseContainer from "../components/HowToUseContainer";
+import FooterContainer from "../components/FooterContainer";
+
+import Navbar from "../components/Nav";
 import SearchBar from "../components/SearchBar";
 import Tabs from "../components/Tabs";
 
@@ -75,6 +78,8 @@ export default function Home() {
         <SearchBar onClick={handleClick} />
         <Tabs markdown={sumary} isFetching={isFetching} />
       </div>
+      <HowToUseContainer />
+      <FooterContainer />
       <ToastContainer />
     </div>
   );

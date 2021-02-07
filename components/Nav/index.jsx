@@ -19,10 +19,13 @@ function Navbar() {
         width={200}
         height={45}
       />
-      <a href="#">About</a>
-      <a href="#">Github</a>
-      <a href="#">How to use</a>
-      <a href="#">Home</a>
+      <a href="https://github.com/tuliocll/summaryze-dev#about" target="_blank">
+        About
+      </a>
+      <a href="https://github.com/tuliocll/summaryze-dev" target="_blank">
+        Github
+      </a>
+      <a href="#how-to-use-it">How to use</a>
       <a href="#" class={style.menu} onClick={toggleMenu}>
         <FiMenu color="#111" />
       </a>

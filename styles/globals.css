@@ -30,7 +30,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #37606c;
   text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ a {
   background-color: #37606c;
   background-image: url("/images/fundo.png");
   background-repeat: repeat;
-  height: 100%;
+  min-height: 65%;
 }
 
 .react-tabs {

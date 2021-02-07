@@ -19,6 +19,9 @@ function TabsPanel({ markdown, isFetching }) {
       }
     });
 
+    code +=
+      "\n ###### generated with [Summaryze DEV](https://summaryze-dev.vercel.app/)";
+
     return code;
   }
 
@@ -70,6 +73,11 @@ function TabsPanel({ markdown, isFetching }) {
             {markdown.map((md) => (
               <ReactMarkdown key={md}>{md}</ReactMarkdown>
             ))}
+            <ReactMarkdown>
+              {
+                "###### generated with [Summaryze DEV](https://summaryze-dev.vercel.app/)"
+              }
+            </ReactMarkdown>
           </div>
         )}
 
