@@ -71,6 +71,21 @@ export default function Home() {
       <Head>
         <title>Summaryze DEV</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-7CEV0QT3Y5"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-7CEV0QT3Y5');
+    `,
+          }}
+        ></script>
       </Head>
       <Navbar />
       <HomeContainer />
