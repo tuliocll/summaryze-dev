@@ -32,7 +32,7 @@ export default function Home() {
     setIsFetching(true);
 
     try {
-      const response = await fetch(`/api/hello?url=${url}`);
+      const response = await fetch(`/api/summary?url=${url}`);
       const body = await response.json();
       if (response.status === 400) {
         toast(body.error, {
