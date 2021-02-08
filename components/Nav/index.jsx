@@ -19,7 +19,10 @@ function Navbar() {
         width={200}
         height={45}
       />
-      <a href="https://github.com/tuliocll/summaryze-dev#about" target="_blank">
+      <a
+        href="https://github.com/tuliocll/summaryze-dev#about-it"
+        target="_blank"
+      >
         About
       </a>
       <a href="https://github.com/tuliocll/summaryze-dev" target="_blank">
