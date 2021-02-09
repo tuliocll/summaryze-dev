@@ -32,7 +32,7 @@ I have this necessity after write [this post](https://dev.to/tuliocalil/criando-
 
 ## How to use it ❓
 
-Check [here]() a quick guide.
+Check [here](https://summaryze-dev.vercel.app/#how-to-use-it) a quick guide.
 
 ## Install 🚀
 
