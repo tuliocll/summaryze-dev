@@ -29,7 +29,7 @@ function Navbar() {
         Github
       </a>
       <a href="#how-to-use-it">How to use</a>
-      <a href="#" class={style.menu} onClick={toggleMenu}>
+      <a href="#" className={style.menu} onClick={toggleMenu}>
         <FiMenu color="#111" />
       </a>
     </nav>
