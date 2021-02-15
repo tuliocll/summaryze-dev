@@ -2,6 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import fetch from "node-fetch";
 import { ToastContainer, toast } from "react-toastify";
+import ReactTooltip from "react-tooltip";
 
 import HomeContainer from "../components/HomeContainer";
 import HowToUseContainer from "../components/HowToUseContainer";
@@ -87,6 +88,7 @@ export default function Home() {
           }}
         ></script>
       </Head>
+      <ReactTooltip type="info" place="top" effect="solid" />
       <Navbar />
       <HomeContainer />
       <div className="container">

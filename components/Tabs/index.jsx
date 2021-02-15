@@ -1,14 +1,18 @@
-import "react-tabs/style/react-tabs.css";
+import { useRef } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { AiFillEye, AiOutlineDesktop, AiFillCode } from "react-icons/ai";
 import ReactMarkdown from "react-markdown";
+
 import LoadingContent from "../LoadingContent";
 import NoContent from "../NoContent";
 import CodeBlock from "../CodeBlock";
+import CopyButton from "../CopyButton";
 
 import style from "./Tabs.module.css";
 
 function TabsPanel({ markdown, isFetching }) {
+  const containerCodeRef = useRef(null);
+
   function stringfy() {
     let code = "";
     markdown.forEach((md) => {
@@ -62,9 +66,14 @@ function TabsPanel({ markdown, isFetching }) {
         {markdown.length === 0 && !isFetching && <NoContent />}
 
         {!isFetching && (
-          <div className={style.markdown_code}>
-            <ReactMarkdown renderers={CodeBlock} children={stringfy()} />
-          </div>
+          <>
+            {markdown.length > 0 && (
+              <CopyButton containerRef={containerCodeRef} />
+            )}
+            <div className={style.markdown_code} ref={containerCodeRef}>
+              <ReactMarkdown renderers={CodeBlock} children={stringfy()} />
+            </div>
+          </>
         )}
       </TabPanel>
       <TabPanel>
