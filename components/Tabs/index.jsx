@@ -59,7 +59,7 @@ function TabsPanel({ markdown, isFetching }) {
       <TabPanel>
         {isFetching && <LoadingContent />}
 
-        {markdown.length === 0 && <NoContent />}
+        {markdown.length === 0 && !isFetching && <NoContent />}
 
         {!isFetching && (
           <div className={style.markdown_code}>
@@ -81,7 +81,7 @@ function TabsPanel({ markdown, isFetching }) {
           </div>
         )}
 
-        {markdown.length === 0 && <NoContent />}
+        {markdown.length === 0 && !isFetching && <NoContent />}
 
         {isFetching && <LoadingContent />}
       </TabPanel>
