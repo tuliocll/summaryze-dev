@@ -13,7 +13,7 @@
 <img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
 </p>
 
-## About it 📖
+## About it📖
 
 Inspired on my [friend](https://github.com/Cledersonbc) project: [Summaryze](https://github.com/autociencia/summaryze), Summaryze DEV is a tool write on javascript with [NextJS](https://nextjs.org/) that use web scrap to get all anchor links from a post on dev.to, format it and create a markdown summary fast and easy.
 I have this necessity after write [this post](https://dev.to/tuliocalil/criando-extensoes-para-o-google-chrome-com-react-1laa) and being too lazy to do the summary, so i decide to create this tool, hope you like it.
@@ -32,7 +32,7 @@ I have this necessity after write [this post](https://dev.to/tuliocalil/criando-
 
 ## How to use it ❓
 
-Check [here]() a quick guide.
+Check [here](https://summaryze-dev.vercel.app/#how-to-use-it) a quick guide.
 
 ## Install 🚀
 
