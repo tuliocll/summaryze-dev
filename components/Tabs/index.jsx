@@ -17,7 +17,7 @@ function TabsPanel({ markdown, isFetching }) {
     let code = "";
     markdown.forEach((md) => {
       if (code === "") {
-        code = `~~~markdown ${md}`;
+        code = `~~~markdown \n ${md}`;
       } else {
         code = `${code} \n ${md}`;
       }
