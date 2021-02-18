@@ -24,7 +24,7 @@ function TabsPanel({ markdown, isFetching }) {
     });
 
     code +=
-      "\n\n ###### generated with [Summaryze DEV](https://summaryze-dev.vercel.app/)";
+      "\n\n###### generated with [Summaryze DEV](https://summaryze-dev.vercel.app/)";
 
     return code;
   }
