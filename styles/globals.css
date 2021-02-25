@@ -45,9 +45,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #37606c;
-  background-image: url("/images/fundo.png");
-  background-repeat: repeat;
+  justify-content: center;
   min-height: 65%;
 }
 

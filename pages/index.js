@@ -1,103 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
-import fetch from "node-fetch";
-import { ToastContainer, toast } from "react-toastify";
-import ReactTooltip from "react-tooltip";
-
-import HomeContainer from "../components/HomeContainer";
-import HowToUseContainer from "../components/HowToUseContainer";
-import FooterContainer from "../components/FooterContainer";
-
-import Navbar from "../components/Nav";
-import SearchBar from "../components/SearchBar";
-import Tabs from "../components/Tabs";
 
 export default function Home() {
-  const [sumary, setSummary] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
+  const [counter, setCounter] = useState(30);
 
-  async function handleClick(url) {
-    if (!url) {
-      toast("Please provide a url!", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        type: "error",
-      });
-      return;
+  useEffect(() => {
+    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+
+    if (counter === 0) {
+      window.location.href = "https://summaryze-forem.vercel.app/";
     }
-    setIsFetching(true);
-
-    try {
-      const response = await fetch(`/api/summary?url=${url}`);
-      const body = await response.json();
-      if (response.status === 400) {
-        toast(body.error, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          type: "error",
-        });
-        setIsFetching(false);
-        return;
-      }
-
-      setSummary(body.sumary);
-      setIsFetching(false);
-    } catch (_) {
-      toast("Error on request, check your url and try again", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        type: "error",
-      });
-      setIsFetching(false);
-    }
-  }
+  }, [counter]);
 
   return (
     <div style={{ height: "100%" }}>
       <Head>
-        <title>Summaryze DEV</title>
+        <title>[OLD]Summaryze DEV</title>
         <link rel="icon" href="/favicon.ico" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-7CEV0QT3Y5"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-7CEV0QT3Y5');
-    `,
-          }}
-        ></script>
       </Head>
-      <ReactTooltip type="info" place="top" effect="solid" />
-      <Navbar />
-      <HomeContainer />
+
       <div className="container">
-        <SearchBar onClick={handleClick} />
-        <Tabs markdown={sumary} isFetching={isFetching} />
+        <h1>We moved!</h1>
+        <span>Summaryze DEV now is Summaryze Forem</span>
+        <a href="https://summaryze-forem.vercel.app/">
+          Click here and go to the new site (you will be redirected in {counter}
+          s)
+        </a>
       </div>
-      <HowToUseContainer />
-      <FooterContainer />
-      <ToastContainer />
     </div>
   );
 }
